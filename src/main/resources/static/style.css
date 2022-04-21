@@ -1,3 +1,58 @@
-table, th, td {
-    border: 1px solid black;
+/* page layout */
+.header-div .content-div .footer-div{
+    width: 100%;
+}
+
+.header-div{
+    background-color: #9b9696;
+    color: #32BB43;
+}
+
+.content-div{
+    background-color: #F7F7F7;
+    margin-left: 200px;
+    margin-right: 200px;
+    padding: 10px;
+}
+.footer-div{
+    background-color: #9b9696;
+    color: #FFC0C7;
+    text-align: center;
+}
+
+/* navigation menu*/
+.header-div ul {
+    list-style: none;
+}
+
+.header-div ul li {
+    display: inline-block;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+
+/* make a table with div*/
+.div-table {
+    display: table;
+}
+
+.table-header{
+    display: table-row;
+    font-weight: bold;
+    text-align: center;
+    background-color: #4F81BD ;
+}
+
+.table-row{
+    display: table-row;
+    background-color: #B8CCE4;
+    /*background-color: #DBE5F1; alternative row color*/
+
+}
+
+.table-cell{
+    display: table-cell;
+    border: thin solid #FFFFFF;
+    padding: 5px;
 }

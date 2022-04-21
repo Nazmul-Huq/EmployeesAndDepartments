@@ -16,7 +16,7 @@ public class  DepartmentRepository implements CRUDInterface<Department>{
     }
 
     @Override
-    public Department getSingleEntityById() {
+    public Department getSingleEntityById(int id) {
         return null;
     }
 

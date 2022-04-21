@@ -1,30 +1,30 @@
 package com.example.demo.models;
 
 public class Department {
-    private int deptno;
-    private String deptName;
+    private int departmentNumber;
+    private String departmentName;
     private String location;
 
     public Department(int deptno, String deptName, String location) {
-        this.deptno = deptno;
-        this.deptName = deptName;
+        this.departmentNumber = deptno;
+        this.departmentName = deptName;
         this.location = location;
     }
 
-    public int getDeptno() {
-        return this.deptno;
+    public int getDepartmentNumber() {
+        return this.departmentNumber;
     }
 
-    public void setDeptno(int deptno) {
-        this.deptno = deptno;
+    public void setDepartmentNumber(int departmentNumber) {
+        this.departmentNumber = departmentNumber;
     }
 
-    public String getDeptName() {
-        return this.deptName;
+    public String getDepartmentName() {
+        return this.departmentName;
     }
 
-    public void setDeptName(String deptName) {
-        this.deptName = deptName;
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
     }
 
     public String getLocation() {
@@ -38,8 +38,8 @@ public class Department {
     @Override
     public String toString() {
         return "Department{" +
-                "deptno=" + deptno +
-                ", deptName='" + deptName + '\'' +
+                "deptno=" + departmentNumber +
+                ", deptName='" + departmentName + '\'' +
                 ", location='" + location + '\'' +
                 '}';
     }

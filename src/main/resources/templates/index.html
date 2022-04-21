@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome</title>
+    <title>Welcome To Employee and Department Management</title>
+    <th:block th:insert="~{/fragments :: link}"></th:block>
 </head>
 <body>
+<header class="header-div" th:replace="fragments::header">
+</header>
+<div class="content-div">
     <h1>Welcome to Employees & Departments !!!!!</h1>
+    Enter an employee id to see detail profile
+    <form th:action="@{/employee-by-id}" method="post">
+        <input type="text" name="employeeId">
+        <input type="submit" value="See Employee Profile">
+    </form>
+    Click on menu to see specific contents
+</div>
+
+<footer class="footer-div" th:insert="fragments.html::footer"></footer>
+
 </body>
 </html>

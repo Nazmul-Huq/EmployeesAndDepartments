@@ -7,7 +7,7 @@ public interface CRUDInterface <T>{
     public boolean create(T entity);
 
     //Read
-    public T getSingleEntityById();
+    public T getSingleEntityById(int id);
     public List<T> getAllEntities();
 
     //Update

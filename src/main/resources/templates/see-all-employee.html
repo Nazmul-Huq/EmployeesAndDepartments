@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of All Employee</title>
+    <th:block th:insert="~{/fragments :: link}"></th:block>
+</head>
+<body>
+
+<header class="header-div" th:insert="fragments::header"></header>
+
+<div class="content-div">
+
+    <h1>List of All Employee</h1>
+
+    <div class="div-table">
+        <div class="table-header">
+            <div class="table-cell">Full Name</div>
+            <div class="table-cell">Job Title</div>
+            <div class="table-cell">Manager</div>
+            <div class="table-cell">Hire Date</div>
+            <div class="table-cell">Salary</div>
+            <div class="table-cell">Commission</div>
+            <div class="table-cell">Detail</div>
+            <div class="table-cell">Edit</div>
+            <div class="table-cell">Delete</div>
+        </div>
+        <div class="table-row" th:each="employee: ${employees}">
+            <div class="table-cell" th:text="${employee.getEmployeeName()}"></div>
+            <div class="table-cell" th:text="${employee.getJob()}"></div>
+            <div class="table-cell" th:text="${employee.getManager()}"></div>
+            <div class="table-cell" th:text="${employee.getHireDate()}"></div>
+            <div class="table-cell" th:text="${employee.getSalary()}"></div>
+            <div class="table-cell" th:text="${employee.getCommission()}"></div>
+            <div class="table-cell"><a th:href="@{/employee/{id}(id=${employee.getId()})}">Detail</a></div>
+            <div class="table-cell"><a th:href="@{/edit-employee/{id}(id=${employee.getId()})}">Edit</a></div>
+            <div class="table-cell"><a th:href="@{/delete-employee/{id}(id=${employee.getId()})}">Detail</a></div>
+        </div>
+    </div>
+
+</div> <!-- end of content-div -->
+
+<footer class="footer-div" th:insert="fragments.html::footer"></footer>
+
+</body>
+</html>

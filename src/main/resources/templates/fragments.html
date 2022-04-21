@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="head">
+    <link rel="stylesheet" th:href="@{style.css}" href="..\static\style.css">
+</div>
+
+<div class="header-div" th:fragment="header">
+    <ul>
+        <li><a th:href="@{/index}" href="../index">Home</a></li>
+        <li><a th:href="@{/see-all-employee}" href="../see-all-employee">See All Employee</a></li>
+        <li><a th:href="@{/add-employee}" href="../see-all-employee">Add Employee</a></li>
+        <li><a th:href="@{/departments}" href="../department">Department</a></li>
+    </ul>
+
+</div>
+
+<div th:fragment="footer">
+    This is footer
+</div>
+</body>
+</html>
