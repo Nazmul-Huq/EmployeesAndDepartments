@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Individual Employee Profile</title>
+    <title>Detail of an Employee</title>
     <th:block th:insert="~{/fragments :: link}"></th:block>
 </head>
 <body>
@@ -11,11 +11,33 @@
 
 <div class="content-div">
 
-    <h1>List of All Employee</h1>
+    <h1>Detail of <span th:text="${employee.getEmployeeName()}"></span></h1>
 
     <div class="div-table">
+        <div class="table-row">
+            <div class="table-cell table-header">Full Name</div>
             <div class="table-cell" th:text="${employee.getEmployeeName()}"></div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell table-header">Job Title</div>
             <div class="table-cell" th:text="${employee.getJob()}"></div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell table-header">Manager Id</div>
+            <div class="table-cell" th:text="${employee.getManager()}"></div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell table-header">Hire Date</div>
+            <div class="table-cell" th:text="${employee.getHireDate()}"></div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell table-header">Salary</div>
+            <div class="table-cell" th:text="${employee.getSalary()}"></div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell table-header">Commission</div>
+            <div class="table-cell" th:text="${employee.getCommission()}"></div>
+        </div>
     </div>
 
 </div> <!-- end of content-div -->

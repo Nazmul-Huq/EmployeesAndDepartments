@@ -7,12 +7,24 @@
 </div>
 
 <div class="header-div" th:fragment="header">
-    <ul>
-        <li><a th:href="@{/index}" href="../index">Home</a></li>
-        <li><a th:href="@{/see-all-employee}" href="../see-all-employee">See All Employee</a></li>
-        <li><a th:href="@{/add-employee}" href="../see-all-employee">Add Employee</a></li>
-        <li><a th:href="@{/departments}" href="../department">Department</a></li>
-    </ul>
+    <div class="container-div">
+        <div class="navigation-div">
+            <ul>
+                <li><a th:href="@{/index}" href="../index">Home</a></li>
+                <li><a th:href="@{/see-all-employee}" href="../see-all-employee">See All Employee</a></li>
+                <li><a th:href="@{/add-employee}" href="../add-employee">Add Employee</a></li>
+                <li><a th:href="@{/departments}" href="../department">Department</a></li>
+            </ul>
+        </div>
+        <div class="form-div">
+            <form th:action="@{/employee}" method="post">
+                <input type="text" name="id" placeholder="Enter Employee id">
+                <input type="submit" value="See Employee Profile">
+            </form>
+        </div>
+    </div>
+
+
 
 </div>
 

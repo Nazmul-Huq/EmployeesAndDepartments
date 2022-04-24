@@ -9,6 +9,7 @@ public interface CRUDInterface <T>{
     //Read
     public T getSingleEntityById(int id);
     public List<T> getAllEntities();
+    public List<T> getAllEntitiesById(int id);
 
     //Update
     public boolean update(T entity);

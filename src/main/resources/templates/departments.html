@@ -1,19 +1,41 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Departments</title>
-    <link rel="stylesheet" th:href="@{style.css}"  type="text/css">
+    <title>List of all departments</title>
+    <th:block th:insert="~{/fragments :: link}"></th:block>
 </head>
 <body>
-    <h1>An overview of our departments</h1>
-    <table>
-        <tr
-            th:each="department : ${departments}">
-            <td th:text="${department.getDeptno()}"></td>
-            <td th:text="${department.getDeptName()}"></td>
-            <td th:text="${department.getLocation()}"></td>
-        </tr>
-    </table>
+
+<header class="header-div" th:insert="fragments::header"></header>
+
+<div class="content-div">
+
+    <h1>List of all departments</h1>
+    <div class="div-table">
+        <div class="table-row">
+            <div class="table-cell table-header">Department Number</div>
+            <div class="table-cell table-header">Department Name</div>
+            <div class="table-cell table-header">Department Location</div>
+            <div class="table-cell table-header">Action</div>
+        </div>
+
+        <div class="table-row" th:each="department:${departments}">
+            <div class="table-cell" th:text="${department.getDepartmentNumber()}"></div>
+            <div class="table-cell" th:text="${department.getDepartmentName()}"></div>
+            <div class="table-cell" th:text="${department.getLocation()}"></div>
+            <div class="table-cell">
+                <form th:action="@{/employee-by-department}" method="post">
+                    <input type="hidden" name="department-number" th:value="${department.getDepartmentNumber()}">
+                    <input type="submit" value="Click to See List Of All Employee of this Department">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div> <!-- end of content-div -->
+
+<footer class="footer-div" th:insert="fragments.html::footer"></footer>
+
 </body>
 </html>

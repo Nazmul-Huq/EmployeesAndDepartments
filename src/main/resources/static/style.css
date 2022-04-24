@@ -20,6 +20,20 @@
     text-align: center;
 }
 
+.container-div{
+    display: flex;
+}
+
+.navigation-div {
+    flex: 1;
+}
+
+.form-div{
+    flex: 1;
+    padding: 10px;
+    margin-top: 5px;
+}
+
 /* navigation menu*/
 .header-div ul {
     list-style: none;
@@ -40,7 +54,7 @@
 .table-header{
     display: table-row;
     font-weight: bold;
-    text-align: center;
+    text-align: left;
     background-color: #4F81BD ;
 }
 

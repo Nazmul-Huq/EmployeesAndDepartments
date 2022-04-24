@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>List of All Employee</title>
+    <title>Edit an Employee</title>
     <th:block th:insert="~{/fragments :: link}"></th:block>
 </head>
 <body>
@@ -11,31 +11,41 @@
 
 <div class="content-div">
 
-    <h1>List of All Employee</h1>
+    <h1>Edit <span th:text="${employee.getEmployeeName()}"></span></h1>
 
-    <div class="div-table">
-        <div class="table-header">
-            <div class="table-cell">Full Name</div>
-            <div class="table-cell">Job Title</div>
-            <div class="table-cell">Manager</div>
-            <div class="table-cell">Hire Date</div>
-            <div class="table-cell">Salary</div>
-            <div class="table-cell">Commission</div>
-            <div class="table-cell">Detail</div>
-            <div class="table-cell">Edit</div>
-            <div class="table-cell">Delete</div>
-        </div>
-        <div class="table-row" th:each="employee: ${employees}">
-            <div class="table-cell" th:text="${employee.getEmployeeName()}"></div>
-            <div class="table-cell" th:text="${employee.getJob()}"></div>
-            <div class="table-cell" th:text="${employee.getManager()}"></div>
-            <div class="table-cell" th:text="${employee.getHireDate()}"></div>
-            <div class="table-cell" th:text="${employee.getSalary()}"></div>
-            <div class="table-cell" th:text="${employee.getCommission()}"></div>
-            <div class="table-cell" th:text="${employee.getJob()}"></div>
-            <div class="table-cell" th:text="${employee.getJob()}"></div>
-        </div>
-    </div>
+    <form th:action="@{/edit-employee-handler}" method="post">
+        <section>
+            Full Name:</br>
+            <input type="text" name="employeeName" th:value="${employee.getEmployeeName()}">
+        </section>
+        <section>
+            Job Title: </br>
+            <input type="text" name="job" th:value="${employee.getJob()}">
+        </section>
+        <section>
+            Manager Id:</br>
+            <input type="text" name="manager" th:value="${employee.getManager()}">
+        </section>
+        <section>
+            Hire Date (YYYY-MM-DD) (Mandatory): </br>
+            <input type="text" name="hireDate" th:value="${employee.getHireDate()}">
+        </section>
+        <section>
+            Salary: </br>
+            <input type="text" name="salary" th:value="${employee.getSalary()}">
+        </section>
+        <section>
+            Commission: </br>
+            <input type="text" name="commission" th:value="${employee.getCommission()}">
+        </section>
+        <section>
+            <input type="hidden" name="id" th:value="${employee.getId()}">
+            <input type="hidden" name="departmentNumber" th:value="${employee.getDepartmentNumber()}">
+            <input type="submit" value="Edit the Employee">
+        </section>
+    </form>
+
+
 
 </div> <!-- end of content-div -->
 

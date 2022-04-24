@@ -2,31 +2,54 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>List of All Employee</title>
+    <title>Add an Employee</title>
     <th:block th:insert="~{/fragments :: link}"></th:block>
 </head>
 <body>
 
-<header id="header-div" th:insert="fragments::header"></header>
+<header class="header-div" th:insert="fragments::header"></header>
 
-<div id="content-div">
+<div class="content-div">
 
-    <h1>List of All Employee</h1>
+    <h1>Add an Employee</h1>
 
-    <div class="div-table">
-        <div class="table-header">
-            <div class="table-cell">FirstName</div>
-            <div class="table-cell">LastName</div>
-        </div>
-        <div class="table-row" th:each="employee: ${employees}">
-            <div class="table-cell" th:text="${employee.getEmployeeName()}"></div>
-            <div class="table-cell" th:text="${employee.getJob()}"></div>
-        </div>
-    </div>
+    <form th:action="@{/add-employee-handler}" method="post">
+
+        <section>
+            Full Name:</br> <input type="text" name="employeeName">
+        </section>
+        <section>
+                Job Title: </br> <input type="text" name="job">
+        </section>
+        <section>
+            Manager Id:</br> <input type="text" name="manager">
+        </section>
+        <section>
+            Hire Date (YYYY-MM-DD) (Mandatory): </br> <input type="text" name="hireDate">
+        </section>
+        <section>
+            Salary: </br> <input type="text" name="salary">
+        </section>
+        <section>
+            Commission: </br>  <input type="text" name="commission">
+        </section>
+        <section>
+            <p>Please Select a Department (Mandatory)</p>
+            <div th:each="department: ${departments}">
+                <input type="radio" th:id="${department.getDepartmentName()}" name="departmentNumber" th:value="${department.getDepartmentNumber()}">
+                <label th:for="${department.getDepartmentName()}" ><span th:text="${department.getDepartmentName()}"></span></label><br>
+            </div>
+        </section>
+        <section>
+            <input type="submit" value="Add Employee">
+        </section>
+    </form>
+
+
 
 </div> <!-- end of content-div -->
 
-<footer id="footer-div" th:insert="fragments.html::footer"></footer>
+<footer class="footer-div" th:insert="fragments.html::footer"></footer>
 
 </body>
 </html>

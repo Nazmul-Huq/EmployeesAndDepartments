@@ -5,6 +5,11 @@ public class Department {
     private String departmentName;
     private String location;
 
+    // default constructor
+    public Department() {
+    }
+
+    // constructor with all attributes
     public Department(int deptno, String deptName, String location) {
         this.departmentNumber = deptno;
         this.departmentName = deptName;

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of All Employee by A Department</title>
+    <th:block th:insert="~{/fragments :: link}"></th:block>
+</head>
+<body>
+
+<header class="header-div" th:insert="fragments::header"></header>
+
+<div class="content-div">
+
+    <h1>List of All Employee of a Department</span></h1>
+
+    <div class="div-table">
+        <div class="table-header">
+            <div class="table-cell">Department Name</div>
+            <div class="table-cell">Location</div>
+
+            <div class="table-cell">Id</div>
+            <div class="table-cell">Full Name</div>
+            <div class="table-cell">Job Title</div>
+            <div class="table-cell">Manager</div>
+            <div class="table-cell">Hire Date</div>
+            <div class="table-cell">Salary</div>
+            <div class="table-cell">Commission</div>
+
+
+
+            <div class="table-cell">Detail</div>
+            <div class="table-cell">Edit</div>
+            <div class="table-cell">Delete</div>
+        </div>
+        <div class="table-row" th:each="employeeByDepartment: ${employeesByDepartment}">
+
+            <div class="table-cell" th:text="${employeeByDepartment.department.getDepartmentName()}"></div>
+            <div class="table-cell" th:text="${employeeByDepartment.department.getLocation()}"></div>
+
+            <div class="table-cell" th:text="${employeeByDepartment.employee.getId()}"></div>
+            <div class="table-cell" th:text="${employeeByDepartment.employee.getEmployeeName()}"></div>
+            <div class="table-cell" th:text="${employeeByDepartment.employee.getJob()}"></div>
+            <div class="table-cell" th:text="${employeeByDepartment.employee.getManager()}"></div>
+            <div class="table-cell" th:text="${employeeByDepartment.employee.getHireDate()}"></div>
+            <div class="table-cell" th:text="${employeeByDepartment.employee.getSalary()}"></div>
+            <div class="table-cell" th:text="${employeeByDepartment.employee.getCommission()}"></div>
+
+            <div class="table-cell">
+                <form th:action="@{/employee}" method="post">
+                    <input type="hidden" name="id" th:value="${employeeByDepartment.employee.getId()}">
+                    <input type="submit" value="Detail">
+                </form>
+            </div>
+
+            <div class="table-cell">
+                <form th:action="@{/edit-employee}" method="post">
+                    <input type="hidden" name="id" th:value="${employeeByDepartment.employee.getId()}">
+                    <input type="submit" value="Edit">
+                </form>
+            </div>
+
+            <div class="table-cell"><a th:href="@{/delete-employee/{id}(id=${employeeByDepartment.employee.getId()})}">Delete</a></div>
+        </div>
+    </div>
+
+</div> <!-- end of content-div -->
+
+<footer class="footer-div" th:insert="fragments.html::footer"></footer>
+
+</body>
+</html>

@@ -10,12 +10,15 @@
 </header>
 <div class="content-div">
     <h1>Welcome to Employees & Departments !!!!!</h1>
-    Enter an employee id to see detail profile
-    <form th:action="@{/employee-by-id}" method="post">
-        <input type="text" name="employeeId">
+    </br></br>
+    <h2>Select an item from top menu to view contents</h2>
+    </br>
+    <b>or</b>
+    <h2>Enter an employee id to see detail profile</h2>
+    <form th:action="@{/employee}" method="post">
+        <input type="text" name="id" placeholder="Enter Employee Id">
         <input type="submit" value="See Employee Profile">
     </form>
-    Click on menu to see specific contents
 </div>
 
 <footer class="footer-div" th:insert="fragments.html::footer"></footer>

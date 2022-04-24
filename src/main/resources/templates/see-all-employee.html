@@ -15,6 +15,7 @@
 
     <div class="div-table">
         <div class="table-header">
+            <div class="table-cell">Id</div>
             <div class="table-cell">Full Name</div>
             <div class="table-cell">Job Title</div>
             <div class="table-cell">Manager</div>
@@ -26,15 +27,26 @@
             <div class="table-cell">Delete</div>
         </div>
         <div class="table-row" th:each="employee: ${employees}">
+            <div class="table-cell" th:text="${employee.getId()}"></div>
             <div class="table-cell" th:text="${employee.getEmployeeName()}"></div>
             <div class="table-cell" th:text="${employee.getJob()}"></div>
             <div class="table-cell" th:text="${employee.getManager()}"></div>
             <div class="table-cell" th:text="${employee.getHireDate()}"></div>
             <div class="table-cell" th:text="${employee.getSalary()}"></div>
             <div class="table-cell" th:text="${employee.getCommission()}"></div>
-            <div class="table-cell"><a th:href="@{/employee/{id}(id=${employee.getId()})}">Detail</a></div>
-            <div class="table-cell"><a th:href="@{/edit-employee/{id}(id=${employee.getId()})}">Edit</a></div>
-            <div class="table-cell"><a th:href="@{/delete-employee/{id}(id=${employee.getId()})}">Detail</a></div>
+            <div class="table-cell">
+                <form th:action="@{/employee}" method="post">
+                    <input type="hidden" name="id" th:value="${employee.getId()}">
+                    <input type="submit" value="Detail">
+                </form>
+            </div>
+            <div class="table-cell">
+                <form th:action="@{/edit-employee}" method="post">
+                    <input type="hidden" name="id" th:value="${employee.getId()}">
+                    <input type="submit" value="Edit">
+                </form>
+            </div>
+            <div class="table-cell"><a th:href="@{/delete-employee/{id}(id=${employee.getId()})}">Delete</a></div>
         </div>
     </div>
 
