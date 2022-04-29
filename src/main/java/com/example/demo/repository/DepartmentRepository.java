@@ -1,8 +1,7 @@
-package com.example.demo.repositories;
+package com.example.demo.repository;
 
 import com.example.demo.models.Department;
 import com.example.demo.utility.DatabaseConnectionManager;
-import com.mysql.cj.protocol.Resultset;
 
 import java.sql.*;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.example.demo.repositories;
+package com.example.demo.repository;
 
 import com.example.demo.models.Employee;
 import com.example.demo.utility.DatabaseConnectionManager;

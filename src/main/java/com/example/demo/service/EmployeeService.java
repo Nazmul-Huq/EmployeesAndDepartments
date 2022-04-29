@@ -1,8 +1,8 @@
 package com.example.demo.service;
 
 import com.example.demo.models.Employee;
-import com.example.demo.repositories.CRUDInterface;
-import com.example.demo.repositories.EmployeeRepository;
+import com.example.demo.repository.CRUDInterface;
+import com.example.demo.repository.EmployeeRepository;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
